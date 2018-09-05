@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour {
 
+    [SerializeField] Transform ballParent;
+
     int ballsInContainer = 0;
     [SerializeField] int minBalls;
     [SerializeField] int spawnCount = 3;
@@ -24,14 +26,16 @@ public class BallSpawner : MonoBehaviour {
         {
             for (int i = 0; i < spawnCount; i++)
             {
-                Instantiate(ballPrefab, spawnPoint.position + new Vector3(Random.Range(-checkingCollider.bounds.extents.x, checkingCollider.bounds.extents.x), Random.Range(-checkingCollider.bounds.extents.y, checkingCollider.bounds.extents.y), 0f), Quaternion.Euler(Vector3.zero));
+                if(ballParent)
+                {
+                    Instantiate(ballPrefab, spawnPoint.position + new Vector3(Random.Range(-checkingCollider.bounds.extents.x, checkingCollider.bounds.extents.x), Random.Range(-checkingCollider.bounds.extents.y, checkingCollider.bounds.extents.y), 0f), Quaternion.Euler(Vector3.zero), ballParent);
+                }
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.layer + "!=" + ballLayer);
         if(other.gameObject.layer == ballLayer)
         {
             ballsInContainer++;
