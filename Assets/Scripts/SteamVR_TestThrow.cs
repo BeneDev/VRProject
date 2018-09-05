@@ -9,7 +9,7 @@ public class SteamVR_TestThrow : MonoBehaviour
 	public Rigidbody attachPoint;
 
     [SerializeField] Collider grabCollider;
-    [SerializeField] LayerMask grabableObjects;
+    int grabableObjects;
  
     [SerializeField] Vector3 velMultiplier;
 
@@ -21,6 +21,7 @@ public class SteamVR_TestThrow : MonoBehaviour
 	void Awake()
 	{
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
+        grabableObjects = LayerMask.NameToLayer("Grabable");
 	}
 
 	void FixedUpdate()
@@ -69,7 +70,7 @@ public class SteamVR_TestThrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(grabableObjects.value == other.gameObject.layer)
+        if(grabableObjects == other.gameObject.layer)
         {
             possibleGrabObj = other.gameObject;
         }

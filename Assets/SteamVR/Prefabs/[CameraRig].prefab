@@ -2439,9 +2439,6 @@ MonoBehaviour:
   prefab: {fileID: 1058474068271646, guid: 451bec86bf83fa0438ba527bf95549d8, type: 2}
   attachPoint: {fileID: 54366535665153524}
   grabCollider: {fileID: 135039989861464802}
-  grabableObjects:
-    serializedVersion: 2
-    m_Bits: 256
   velMultiplier: {x: 2, y: 2, z: 2.3}
 --- !u!114 &114789219867522684
 MonoBehaviour:
@@ -2457,9 +2454,6 @@ MonoBehaviour:
   prefab: {fileID: 1058474068271646, guid: 451bec86bf83fa0438ba527bf95549d8, type: 2}
   attachPoint: {fileID: 54646463172026860}
   grabCollider: {fileID: 135352048705451864}
-  grabableObjects:
-    serializedVersion: 2
-    m_Bits: 256
   velMultiplier: {x: 2, y: 2, z: 2.3}
 --- !u!135 &135039989861464802
 SphereCollider:
@@ -2471,7 +2465,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135352048705451864
 SphereCollider:
@@ -2483,5 +2477,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
