@@ -8,10 +8,15 @@ public class SteamVR_TestThrow : MonoBehaviour
 	public GameObject prefab;
 	public Rigidbody attachPoint;
 
+    [SerializeField] Collider grabCollider;
+    [SerializeField] LayerMask grabableObjects;
+ 
     [SerializeField] Vector3 velMultiplier;
 
 	SteamVR_TrackedObject trackedObj;
 	FixedJoint joint;
+
+    GameObject possibleGrabObj;
 
 	void Awake()
 	{
@@ -23,11 +28,15 @@ public class SteamVR_TestThrow : MonoBehaviour
 		var device = SteamVR_Controller.Input((int)trackedObj.index);
 		if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
 		{
-			var newBall = GameObject.Instantiate(prefab);
-			newBall.transform.position = attachPoint.transform.position;
+            if(possibleGrabObj)
+            {
+                var grabbedObject = possibleGrabObj;
 
-			joint = newBall.AddComponent<FixedJoint>();
-			joint.connectedBody = attachPoint;
+                grabbedObject.transform.position = attachPoint.transform.position;
+
+                joint = grabbedObject.AddComponent<FixedJoint>();
+                joint.connectedBody = attachPoint;
+            }
 		}
 		else if (joint != null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
 		{
@@ -35,7 +44,6 @@ public class SteamVR_TestThrow : MonoBehaviour
 			var rb = go.GetComponent<Rigidbody>();
 			Object.DestroyImmediate(joint);
 			joint = null;
-			Object.Destroy(go, 15.0f);
 
 			// We should probably apply the offset between trackedObj.transform.position
 			// and device.transform.pos to insert into the physics sim at the correct
@@ -58,4 +66,12 @@ public class SteamVR_TestThrow : MonoBehaviour
 			rb.maxAngularVelocity = rb.angularVelocity.magnitude;
 		}
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(grabableObjects.value == other.gameObject.layer)
+        {
+            possibleGrabObj = other.gameObject;
+        }
+    }
 }

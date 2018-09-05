@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 458974}
   - component: {fileID: 11411726}
   - component: {fileID: 114789219867522684}
+  - component: {fileID: 135352048705451864}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -97,6 +98,7 @@ GameObject:
   - component: {fileID: 402434}
   - component: {fileID: 11463128}
   - component: {fileID: 114036463536969714}
+  - component: {fileID: 135039989861464802}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -2434,8 +2436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4f36585e15b1942827390ff1a92502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1058474068271646, guid: f265b0b010788284a9cf43d11a819676, type: 2}
+  prefab: {fileID: 1058474068271646, guid: 451bec86bf83fa0438ba527bf95549d8, type: 2}
   attachPoint: {fileID: 54366535665153524}
+  grabCollider: {fileID: 135039989861464802}
+  grabableObjects:
+    serializedVersion: 2
+    m_Bits: 256
   velMultiplier: {x: 2, y: 2, z: 2.3}
 --- !u!114 &114789219867522684
 MonoBehaviour:
@@ -2448,6 +2454,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4f36585e15b1942827390ff1a92502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1058474068271646, guid: f265b0b010788284a9cf43d11a819676, type: 2}
+  prefab: {fileID: 1058474068271646, guid: 451bec86bf83fa0438ba527bf95549d8, type: 2}
   attachPoint: {fileID: 54646463172026860}
+  grabCollider: {fileID: 135352048705451864}
+  grabableObjects:
+    serializedVersion: 2
+    m_Bits: 256
   velMultiplier: {x: 2, y: 2, z: 2.3}
+--- !u!135 &135039989861464802
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135352048705451864
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
