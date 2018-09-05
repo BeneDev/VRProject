@@ -75,4 +75,12 @@ public class SteamVR_TestThrow : MonoBehaviour
             possibleGrabObj = other.gameObject;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (grabableObjects == other.gameObject.layer)
+        {
+            possibleGrabObj = null;
+        }
+    }
 }
