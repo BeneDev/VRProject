@@ -33,11 +33,13 @@ public class SteamVR_TestThrow : MonoBehaviour
             if(possibleGrabObj)
             {
                 //var deviceIndex = SteamVR_Controller.GetDeviceIndex(SteamVR_Controller.DeviceRelation.Leftmost);
-                SteamVR_Controller.Input((int)device.index).TriggerHapticPulse(ushort.MaxValue, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
+                SteamVR_Controller.Input((int)device.index).TriggerHapticPulse(ushort.MaxValue, Valve.VR.EVRButtonId.k_EButton_Max);
 
                 var grabbedObject = possibleGrabObj;
 
-                grabbedObject.transform.position = attachPoint.transform.position;
+                Vector3 offset = grabbedObject.transform.position - attachPoint.transform.position;
+
+                grabbedObject.transform.position = attachPoint.transform.position + offset;
 
                 joint = grabbedObject.AddComponent<FixedJoint>();
                 joint.connectedBody = attachPoint;
