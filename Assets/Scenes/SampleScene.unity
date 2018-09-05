@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114063492795110488, guid: 2f6bfc82d94596e4ebe7d7bcc9c13659,
+        type: 2}
+      propertyPath: existentCanTower
+      value: 
+      objectReference: {fileID: 1947239054}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f6bfc82d94596e4ebe7d7bcc9c13659, type: 2}
   m_IsPrefabParent: 0
@@ -359,48 +364,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3ba351ddc2e35447a1cbf4ae207be20, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &559695093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 559695095}
-  - component: {fileID: 559695094}
-  m_Layer: 0
-  m_Name: CanManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &559695094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 559695093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed3e85622d594af459e75e08293403b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1035774564722196, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
---- !u!4 &559695095
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 559695093}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.394, y: 0.97, z: -0.244}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1947239055}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659454096
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,39 +449,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &896033874
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &955988597
 Prefab:
   m_ObjectHideFlags: 0
@@ -608,7 +538,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 2}
   m_IsPrefabParent: 0
---- !u!43 &1251113140
+--- !u!43 &1313899904
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -796,14 +726,47 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1251113140}
+      objectReference: {fileID: 1313899904}
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 896033874}
+      objectReference: {fileID: 1587136457}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_IsPrefabParent: 0
+--- !u!21 &1587136457
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1610966937
 Prefab:
   m_ObjectHideFlags: 0
@@ -855,19 +818,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 559695095}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4859287347859686, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.235264
+      value: 2.1587362
       objectReference: {fileID: 0}
     - target: {fileID: 4859287347859686, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.9699164
+      value: 0.00008362532
       objectReference: {fileID: 0}
     - target: {fileID: 4859287347859686, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.4995103
+      value: 0.25551027
       objectReference: {fileID: 0}
     - target: {fileID: 4859287347859686, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
       propertyPath: m_LocalRotation.x
@@ -887,7 +850,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4859287347859686, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
@@ -934,9 +897,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 451bec86bf83fa0438ba527bf95549d8, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1947239055 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4859287347859686, guid: 60ce2a89cea645447b09cd0f8f0ad335,
+--- !u!1 &1947239054 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1035774564722196, guid: 60ce2a89cea645447b09cd0f8f0ad335,
     type: 2}
   m_PrefabInternal: {fileID: 1756259019}
 --- !u!1 &2145508503

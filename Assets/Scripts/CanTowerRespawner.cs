@@ -5,19 +5,24 @@ using UnityEngine;
 public class CanTowerRespawner : MonoBehaviour {
 
     [SerializeField] GameObject prefab;
-    Vector3 childPos;
+    [SerializeField] GameObject existentCanTower;
+    Vector3 canTowerPos;
 
     private void Awake()
     {
-        childPos = transform.GetChild(0).transform.position;
         InvokeRepeating("RespawnCanTower", 0f, 1f);
     }
 
     void RespawnCanTower()
     {
-        if(transform.childCount <= 0f && prefab)
+        if(!existentCanTower && prefab)
         {
-            Instantiate(prefab, childPos, transform.rotation, transform);
+            GameObject newCanTower = Instantiate(prefab, canTowerPos, Quaternion.Euler(Vector3.zero));
+            existentCanTower = newCanTower;
+        }
+        else
+        {
+            canTowerPos = existentCanTower.transform.position;
         }
     }
 }

@@ -4,26 +4,17 @@ using UnityEngine;
 
 public class CanManager : MonoBehaviour {
 
-    float initialYPos;
-    [SerializeField] float yOffsetToDestroy = 0.5f;
-
-    private void Awake()
+    void Vanish()
     {
-        initialYPos = transform.position.y;
-        InvokeRepeating("CheckYPos", 0f, 1f);
+        Destroy(gameObject);
     }
 
-    void CheckYPos()
+    private void OnCollisionEnter(Collision collision)
     {
-        if(transform.position.y < initialYPos - yOffsetToDestroy && transform.parent)
+        if(collision.gameObject.tag == "Ground" && transform.parent)
         {
             transform.parent.gameObject.GetComponent<CanTowerManager>().OnAllCansKnockedOver += Vanish;
             transform.parent = null;
         }
-    }
-
-    void Vanish()
-    {
-        Destroy(gameObject);
     }
 }

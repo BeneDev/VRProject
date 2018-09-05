@@ -13,14 +13,13 @@ public class CanTowerManager : MonoBehaviour {
 
     void CheckCanCount()
     {
-        print(transform.childCount);
         if(transform.childCount <= 0f)
         {
-            Respawn();
+            DestroyAll();
         }
     }
 
-    void Respawn()
+    void DestroyAll()
     {
         if (OnAllCansKnockedOver != null)
         {

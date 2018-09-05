@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 64278930889073270}
   m_Layer: 0
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4772972502889860}
+  - component: {fileID: 114063492795110488}
   m_Layer: 0
   m_Name: Booth
   m_TagString: Untagged
@@ -451,3 +452,16 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114063492795110488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946559568467500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3e85622d594af459e75e08293403b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1035774564722196, guid: 60ce2a89cea645447b09cd0f8f0ad335, type: 2}
+  existentCanTower: {fileID: 0}
