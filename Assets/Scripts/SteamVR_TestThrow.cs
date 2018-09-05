@@ -1,6 +1,7 @@
 ﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 using UnityEngine;
 using System.Collections;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(SteamVR_TrackedObject))]
 public class SteamVR_TestThrow : MonoBehaviour
@@ -31,6 +32,9 @@ public class SteamVR_TestThrow : MonoBehaviour
 		{
             if(possibleGrabObj)
             {
+                //var deviceIndex = SteamVR_Controller.GetDeviceIndex(SteamVR_Controller.DeviceRelation.Leftmost);
+                SteamVR_Controller.Input((int)device.index).TriggerHapticPulse(ushort.MaxValue, Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger);
+
                 var grabbedObject = possibleGrabObj;
 
                 grabbedObject.transform.position = attachPoint.transform.position;
@@ -45,7 +49,7 @@ public class SteamVR_TestThrow : MonoBehaviour
 			var rb = go.GetComponent<Rigidbody>();
 			Object.DestroyImmediate(joint);
 			joint = null;
-
+            
 			// We should probably apply the offset between trackedObj.transform.position
 			// and device.transform.pos to insert into the physics sim at the correct
 			// location, however, we would then want to predict ahead the visual representation
@@ -75,6 +79,7 @@ public class SteamVR_TestThrow : MonoBehaviour
             possibleGrabObj = other.gameObject;
         }
     }
+    
 
     private void OnTriggerExit(Collider other)
     {
