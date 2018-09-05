@@ -8,6 +8,8 @@ public class SteamVR_TestThrow : MonoBehaviour
 	public GameObject prefab;
 	public Rigidbody attachPoint;
 
+    [SerializeField] Vector3 velMultiplier;
+
 	SteamVR_TrackedObject trackedObj;
 	FixedJoint joint;
 
@@ -21,10 +23,10 @@ public class SteamVR_TestThrow : MonoBehaviour
 		var device = SteamVR_Controller.Input((int)trackedObj.index);
 		if (joint == null && device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
 		{
-			var go = GameObject.Instantiate(prefab);
-			go.transform.position = attachPoint.transform.position;
+			var newBall = GameObject.Instantiate(prefab);
+			newBall.transform.position = attachPoint.transform.position;
 
-			joint = go.AddComponent<FixedJoint>();
+			joint = newBall.AddComponent<FixedJoint>();
 			joint.connectedBody = attachPoint;
 		}
 		else if (joint != null && device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
@@ -41,15 +43,16 @@ public class SteamVR_TestThrow : MonoBehaviour
 			// by the same amount we are predicting our render poses.
 
 			var origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-			if (origin != null)
+            Vector3 throwVelo = origin.TransformVector(device.velocity);
+            if (origin != null)
 			{
-				rb.velocity = origin.TransformVector(device.velocity) * 1.5f;
+                rb.velocity = new Vector3(throwVelo.x * (1f + (velMultiplier.x * (1 - (rb.mass / 100f)))), throwVelo.y * (1f + (velMultiplier.y * (1 - (rb.mass / 100f)))), throwVelo.z * (1f + (velMultiplier.z * (1 - (rb.mass / 100f)))));
 				rb.angularVelocity = origin.TransformVector(device.angularVelocity);
 			}
 			else
 			{
-				rb.velocity = device.velocity * 1.5f;
-				rb.angularVelocity = device.angularVelocity;
+				rb.velocity = new Vector3(throwVelo.x * (1f + (velMultiplier.x * (1 - (rb.mass / 100f)))), throwVelo.y * (1f + (velMultiplier.y * (1 - (rb.mass / 100f)))), throwVelo.z * (1f + (velMultiplier.z * (1 - (rb.mass / 100f)))));
+                rb.angularVelocity = device.angularVelocity;
 			}
 
 			rb.maxAngularVelocity = rb.angularVelocity.magnitude;
